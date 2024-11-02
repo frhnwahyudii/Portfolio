@@ -1,17 +1,143 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
-</body>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Personal Portfolio
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 text-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+   <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <a class="text-2xl font-bold text-gray-800" href="#">
+     Farhan Wahyudi
+    </a>
+    <div class="space-x-4">
+     <a class="text-gray-600 hover:text-gray-800" href="#about">
+      About
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="#projects">
+      Projects
+     </a>
+     <a class="text-gray-600 hover:text-gray-800" href="https://wa.me/6281247506528">
+        Contact
+       </a>
+    </div>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <section class="bg-gray-800 text-white py-20">
+   <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl font-bold mb-4">
+     Hello, I'm Farhan Wahyudi
+    </h1>
+    <p class="text-xl mb-8">
+     A Web Developer enthusiast
+    </p>
+    <a class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600" href="https://wa.me/6281247506528" target="_blank">
+     Get in Touch
+    </a>
+   </div>
+  </section>
+  <!-- About Section -->
+  <section class="py-20" id="about">
+   <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row items-center">
+     <div class="md:w-1/2 mb-8 md:mb-0">
+      <img alt="Portrait of Farhan Wahyudi" class="rounded-full mx-auto" height="400" src="/assets/farhan.jpg" width="400"/>
+     </div>
+     <div class="md:w-1/2 md:pl-12">
+      <h2 class="text-3xl font-bold mb-4">
+       About Me
+      </h2>
+      <p class="text-lg mb-4">
+       I am a two-year undergraduate student at the faculty of Computer Science, Dinamika Bangsa University. majoring in information system. my current gpa is 3.54/4.00
+      </p>
+      <p class="text-lg">
+        skills:
+        <br>-HTML (basic)
+        <br>-Laravel (slightly advance)
+        <br>-C# (slightly advance)
+        <br>-Problem Solving
+        <br>-Fast Learner
+        <br>-Adaptable
+        <br>-Communication
+        <br>-Teamwork
+        <br>-English(basic), Indonesian(native)
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Projects Section -->
+  <section class="bg-gray-200 py-20" id="projects">
+   <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">
+     Projects
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 1, a responsive web application" class="w-full" height="400" src="assets/regislaravel.png" width="600"/>
+      <div class="p-6">
+       <h3 class="text-xl font-bold mb-2">
+        Project 1
+       </h3>
+       <p class="text-gray-700 mb-4">
+        A web application study case built with Laravel Framework.
+       </p>
+       <a class="text-blue-500 hover:underline" href="project1.html">
+        View Project
+       </a>
+      </div>
+     </div>
+     <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <img alt="Screenshot of Project 2, an e-commerce website" class="w-full" height="400" src="assets/cindex.png" width="600"/>
+      <div class="p-6">
+       <h3 class="text-xl font-bold mb-2">
+        Project 2
+       </h3>
+       <p class="text-gray-700 mb-4">
+        A base cashier input application using c#
+       </p>
+       <a class="text-blue-500 hover:underline" href="project2.html">
+        View Project
+       </a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+   <div class="container mx-auto px-4 text-center">
+    <p>
+     © 2024 Farhan Wahyudi. All rights reserved.
+    </p>
+    <div class="mt-4 space-x-4">
+     <a class="text-white hover:text-gray-400" href="https://instagram.com/frhnwahyudi" target="_blank">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a class="text-white hover:text-gray-400" href="https://linkedin.com/in/frhnwahyudi" target="_blank">
+      <i class="fab fa-linkedin-in">
+      </i>
+     </a>
+     <a class="text-white hover:text-gray-400" href="https://github.com/frhnwahyudii" target="_blank">
+      <i class="fab fa-github">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
 </html>
