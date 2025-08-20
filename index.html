@@ -8,137 +8,343 @@
   <script src="https://cdn.tailwindcss.com">
   </script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
   <style>
    body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .skill-tag {
+            background: linear-gradient(45deg, #1e3a8a, #3730a3);
+            color: white;
+            padding: 0.375rem 0.875rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0.25rem;
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .professional-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 2px;
         }
   </style>
  </head>
  <body class="bg-gray-100 text-gray-800">
   <!-- Navbar -->
-  <nav class="bg-white shadow-sm">
-   <div class="container mx-auto px-3 py-2 flex justify-between items-center">
+  <nav class="bg-white shadow-lg border-b border-gray-200">
+   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
     <a class="text-2xl font-bold text-gray-800" href="#">
-     Portfolio
+     <span class="text-blue-600">Farhan</span> Portfolio
     </a>
-    <div class="space-x-4">
-     <a class="text-gray-600 hover:text-gray-700" href="#about">
+    <div class="space-x-6">
+     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300" href="#about">
       About
      </a>
-     <a class="text-gray-600 hover:text-gray-800" href="#projects">
+     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300" href="#projects">
       Projects
+     </a>
+     <a class="text-gray-600 hover:text-blue-600 font-medium transition-colors duration-300" href="#contact">
+      Contact
      </a>
     </div>
    </div>
   </nav>
   <!-- Hero Section -->
-  <section class="bg-gray-800 text-white py-20">
+  <section class="hero-gradient text-white py-24">
    <div class="container mx-auto px-4 text-center">
-    <h1 class="text-4xl font-bold mb-4">
-     Hello, I'm Farhan Wahyudi
+    <h1 class="text-5xl md:text-6xl font-bold mb-6 fade-in-up">
+     Farhan Wahyudi
     </h1>
-    <p class="text-xl mb-8">
-     A Web Developer enthusiast
+    <p class="text-xl md:text-2xl mb-4 fade-in-up text-blue-100" style="animation-delay: 0.2s;">
+     Information Systems Student
     </p>
+    <p class="text-lg mb-8 fade-in-up text-blue-200 max-w-2xl mx-auto" style="animation-delay: 0.3s;">
+     Passionate about web development and creating innovative technological solutions with expertise in Laravel, C#, and Geographic Information Systems
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in-up" style="animation-delay: 0.5s;">
+     <a href="#projects" class="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+      View My Projects
+     </a>
+     <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 transform hover:scale-105">
+      Get In Touch
+     </a>
+    </div>
    </div>
   </section>
   <!-- About Section -->
-  <section class="py-20" id="about">
+  <section class="py-20 bg-white" id="about">
    <div class="container mx-auto px-4">
-    <div class="flex flex-col md:flex-row items-center">
-     <div class="md:w-1/2 mb-8 md:mb-0">
-      <img alt="Portrait of Farhan Wahyudi" class="rounded-full mx-auto" height="400" src="assets/images/farhan.jpg" width="400"/>
+    <h2 class="text-4xl font-bold text-center mb-16 text-gray-900 section-title">
+     About Me
+    </h2>
+    <div class="flex flex-col lg:flex-row items-center">
+     <div class="lg:w-1/2 mb-12 lg:mb-0">
+      <img alt="Portrait of Farhan Wahyudi" class="rounded-2xl mx-auto shadow-2xl border-4 border-white" height="450" src="assets/images/farhan.jpg" width="450"/>
      </div>
-     <div class="md:w-1/2 md:pl-12">
-      <h2 class="text-3xl font-bold mb-4">
-       About
-      </h2>
-      <p class="text-lg mb-4">
-       I am a two-year undergraduate student at the faculty of Computer Science, Dinamika Bangsa University. majoring in information system. my current gpa is 3.54/4.00
+     <div class="lg:w-1/2 lg:pl-16">
+      <div class="bg-blue-50 text-blue-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-6">
+       Information Systems Student
+      </div>
+      <h3 class="text-2xl font-bold mb-6 text-gray-900">
+       Building Digital Solutions with Purpose
+      </h3>
+      <p class="text-lg mb-6 text-gray-600 leading-relaxed">
+       I am a undergraduate student at Dinamika Bangsa University, Faculty of Computer Science, 
+       majoring in Information Systems with a current GPA of 3.67/4.00. I have a dedicated purpose for
+       building a career in IT Industries and a strong desire to learn something new following tech growths, trends, and demands.
+       I also integrate artificial intelligence technologies into my work for efficiency and help me
+       with problem solving.
       </p>
-      <p class="text-lg">
-        skills:
-        <br>-HTML (basic)
-        <br>-Laravel (slightly advance)
-        <br>-C# (slightly advance)
-        <br>-Problem Solving
-        <br>-Fast Learner
-        <br>-Adaptable
-        <br>-Communication
-        <br>-Teamwork
-        <br>-English(basic), Indonesian(native)
-      </p>
+      
+      <div class="mb-8">
+       <h4 class="text-xl font-semibold mb-4 text-gray-900">Technical Expertise:</h4>
+       <div class="flex flex-wrap gap-2">
+        <span class="skill-tag">Laravel Framework</span>
+        <span class="skill-tag">PHP Development</span>
+        <span class="skill-tag">C# Programming</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">MySQL Database</span>
+        <span class="skill-tag">HTML5 & CSS3</span>
+        <span class="skill-tag">AI Integration</span>
+       </div>
+      </div>
+      
+      <div class="mb-8">
+       <h4 class="text-xl font-semibold mb-4 text-gray-900">Professional Skills:</h4>
+       <div class="flex flex-wrap gap-2">
+        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Critical Thinking</span>
+        <span class="skill-tag">Fast Learning</span>
+        <span class="skill-tag">Team Collaboration</span>
+        <span class="skill-tag">Project Management</span>
+        <span class="skill-tag">Communication</span>
+       </div>
+      </div>
+      
+      <div class="grid grid-cols-2 gap-6 text-center">
+       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-100">
+        <div class="text-2xl font-bold text-blue-600">3.67</div>
+        <div class="text-sm text-gray-600">Current GPA</div>
+       </div>
+       <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-lg border border-purple-100">
+        <div class="text-2xl font-bold text-purple-600">3+</div>
+        <div class="text-sm text-gray-600">Projects Completed</div>
+       </div>
+      </div>
      </div>
     </div>
    </div>
   </section>
   <!-- Projects Section -->
-  <section class="bg-gray-200 py-20" id="projects">
+  <section class="bg-gray-50 py-20" id="projects">
    <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-12">
-     Projects
+    <h2 class="text-4xl font-bold text-center mb-6 text-gray-900 section-title">
+     Featured Projects
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
-      <img alt="Screenshot of Project 1, a responsive web application" class="w-full" height="400" src="assets/images/regislaravel.png" width="600"/>
+    <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+     Explore my portfolio of innovative projects that demonstrate my technical skills and problem-solving abilities
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden card-hover border border-gray-100">
+      <div class="relative">
+       <img alt="Laravel Registration System Interface" class="w-full h-48 object-cover" src="assets/images/regislaravel.png"/>
+       <div class="absolute top-4 left-4">
+        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Web Development</span>
+       </div>
+      </div>
       <div class="p-6">
-       <h3 class="text-xl font-bold mb-2">
-        Project 1
+       <h3 class="text-xl font-bold mb-3 text-gray-900">
+        Laravel Registration System
        </h3>
-       <p class="text-gray-700 mb-4">
-        A web application study case built with Laravel Framework.
+       <p class="text-gray-600 mb-4 leading-relaxed">
+        Comprehensive clinic management system built with Laravel Framework, featuring patient registration, 
+        doctor management, and secure authentication with CRUD operations.
        </p>
-       <a class="text-blue-500 hover:underline" href="project1.html">
-        View Project
+       <div class="flex flex-wrap gap-1 mb-4">
+        <span class="bg-red-50 text-red-700 px-2 py-1 rounded text-xs">Laravel</span>
+        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs">PHP</span>
+        <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">MySQL</span>
+       </div>
+       <a class="inline-block professional-gradient hover:shadow-lg text-white px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 font-medium" href="project1.html">
+        View Details
        </a>
       </div>
      </div>
-     <div class="bg-white shadow-md rounded-lg overflow-hidden">
-      <img alt="Screenshot of Project 2, an e-commerce website" class="w-full" height="400" src="assets/images/cindex.png" width="600"/>
+     
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden card-hover border border-gray-100">
+      <div class="relative">
+       <img alt="C# Cashier Application Interface" class="w-full h-48 object-cover" src="assets/images/cindex.png"/>
+       <div class="absolute top-4 left-4">
+        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium">Academic Project</span>
+       </div>
+      </div>
       <div class="p-6">
-       <h3 class="text-xl font-bold mb-2">
-        Project 2
+       <h3 class="text-xl font-bold mb-3 text-gray-900">
+        OOP Cashier Application
        </h3>
-       <p class="text-gray-700 mb-4">
-        A base cashier input application using c#
+       <p class="text-gray-600 mb-4 leading-relaxed">
+        Desktop cashier application implementing Object-Oriented Programming concepts in C#. 
+        Features transaction processing, automatic calculations, and receipt generation.
        </p>
-       <a class="text-blue-500 hover:underline" href="project2.html">
-        View Project
+       <div class="flex flex-wrap gap-1 mb-4">
+        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs">C#</span>
+        <span class="bg-purple-50 text-purple-700 px-2 py-1 rounded text-xs">OOP</span>
+        <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">Windows Forms</span>
+       </div>
+       <a class="inline-block professional-gradient hover:shadow-lg text-white px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 font-medium" href="project2.html">
+        View Details
+       </a>
+      </div>
+     </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden card-hover border border-gray-100">
+      <div class="relative">
+       <img alt="GIS Beauty Clinic Mapping System Dashboard" class="w-full h-48 object-cover" src="assets/images/dashboard.png"/>
+       <div class="absolute top-4 left-4">
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">GIS Application</span>
+       </div>
+      </div>
+      <div class="p-6">
+       <h3 class="text-xl font-bold mb-3 text-gray-900">
+        GIS Beauty Clinic Mapping
+       </h3>
+       <p class="text-gray-600 mb-4 leading-relaxed">
+        Advanced Geographic Information System for mapping beauty clinics in Jambi City. 
+        Features interactive maps, spatial data analysis, and comprehensive clinic database.
+       </p>
+       <div class="flex flex-wrap gap-1 mb-4">
+        <span class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs">GIS</span>
+        <span class="bg-green-50 text-green-700 px-2 py-1 rounded text-xs">Leaflet.js</span>
+        <span class="bg-orange-50 text-orange-700 px-2 py-1 rounded text-xs">Mapping</span>
+       </div>
+       <a class="inline-block professional-gradient hover:shadow-lg text-white px-6 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 font-medium" href="project3.html">
+        View Details
        </a>
       </div>
      </div>
     </div>
    </div>
   </section>
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
+  <!-- Contact Section -->
+  <section class="bg-white py-20" id="contact">
    <div class="container mx-auto px-4 text-center">
-    <div style="font-size: 20px;">
-      <b>Contact/Inquiries</b>
-  </div>
-    <div class="mt-4 space-x-5">
-     <a class="text-white hover:text-gray-400" href="https://instagram.com/frhnwahyudi" target="_blank">
-      <i class="fab fa-instagram fa-2x">
-      </i>
+    <h2 class="text-4xl font-bold mb-6 text-gray-900 section-title">
+     Let's Connect
+    </h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+     I'm always interested in discussing new opportunities, innovative projects, and potential collaborations. 
+     Feel free to reach out through any of the channels below.
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+     <a href="https://instagram.com/frhnwahyudi" target="_blank" class="group bg-gradient-to-br from-pink-50 to-orange-50 p-6 rounded-xl border border-pink-100 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <div class="professional-gradient rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+       <i class="fab fa-instagram text-white text-xl"></i>
+      </div>
+      <h4 class="font-semibold text-gray-900 mb-2">Instagram</h4>
+      <p class="text-sm text-gray-600">@frhnwahyudi</p>
      </a>
-     <a class="text-white hover:text-gray-400" href="mailto:frhnwahyudii@gmail.com" target="_blank">
-      <i class="fa fa-envelope fa-2x">
-      </i>
+
+     <a href="mailto:frhnwahyudii@gmail.com" target="_blank" class="group bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <div class="professional-gradient rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+       <i class="fa fa-envelope text-white text-xl"></i>
+      </div>
+      <h4 class="font-semibold text-gray-900 mb-2">Email</h4>
+      <p class="text-sm text-gray-600">frhnwahyudii@gmail.com</p>
      </a>
-     <a class="text-white hover:text-gray-400" href="https://linkedin.com/in/frhnwahyudi" target="_blank">
-      <i class="fab fa-linkedin-in fa-2x">
-      </i>
+
+     <a href="https://linkedin.com/in/frhnwahyudi" target="_blank" class="group bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl border border-blue-100 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <div class="professional-gradient rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+       <i class="fab fa-linkedin-in text-white text-xl"></i>
+      </div>
+      <h4 class="font-semibold text-gray-900 mb-2">LinkedIn</h4>
+      <p class="text-sm text-gray-600">frhnwahyudi</p>
      </a>
-     <a class="text-white hover:text-gray-400" href="https://github.com/frhnwahyudii" target="_blank">
-      <i class="fab fa-github fa-2x">
-      </i>
+
+     <a href="https://github.com/frhnwahyudii" target="_blank" class="group bg-gradient-to-br from-gray-50 to-slate-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+      <div class="professional-gradient rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+       <i class="fab fa-github text-white text-xl"></i>
+      </div>
+      <h4 class="font-semibold text-gray-900 mb-2">GitHub</h4>
+      <p class="text-sm text-gray-600">frhnwahyudii</p>
      </a>
     </div>
-    <p class="mt-4">
-     © 2024 Farhan Wahyudi. All rights reserved.
-    </p>
+   </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+     <div>
+      <h3 class="text-xl font-bold mb-4">
+       <span class="text-blue-400">Farhan</span> Wahyudi
+      </h3>
+      <p class="text-gray-300 leading-relaxed">
+       Information Systems student passionate about creating innovative web solutions and contributing to technological advancement.
+      </p>
+     </div>
+     
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-gray-200">Quick Links</h4>
+      <ul class="space-y-2">
+       <li><a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">About Me</a></li>
+       <li><a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Projects</a></li>
+       <li><a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors duration-300">Contact</a></li>
+      </ul>
+     </div>
+     
+     <div>
+      <h4 class="text-lg font-semibold mb-4 text-gray-200">Technical Skills</h4>
+      <div class="flex flex-wrap gap-2">
+       <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">Laravel</span>
+       <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">C#</span>
+       <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">GIS</span>
+       <span class="bg-gray-800 text-gray-300 px-3 py-1 rounded text-sm">PHP</span>
+      </div>
+     </div>
+    </div>
     
+    <div class="border-t border-gray-800 pt-8 text-center">
+     <p class="text-gray-400">
+      © 2024 Farhan Wahyudi. All rights reserved. | Built with passion and dedication.
+     </p>
+    </div>
    </div>
   </footer>
  </body>
