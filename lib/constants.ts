@@ -5,10 +5,10 @@ export const PERSONAL_INFO = {
   tagline: "Information Systems Graduate | Building purposeful full-stack solutions with Laravel, modern web tech & AI",
   summary:
     "I build digital solutions that matter. A recent Information Systems graduate (GPA 3.73/4.00) with a passion for full-stack development, geographic information systems, and AI-integrated productivity tools. I transform complex problems into clean, functional applications.",
-  email: "frhnwahyudii@gmail.com",
+  email: "hello@frhnwahyudi.xyz",
   phone: "",
   location: "Jambi, Indonesia",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Resume_FarhanWahyudi.pdf",
   graduation: "June 2026",
   gpa: "3.73",
   university: "Dinamika Bangsa University",
@@ -25,9 +25,9 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     name: "Email",
-    url: "mailto:frhnwahyudii@gmail.com",
+    url: "mailto:hello@frhnwahyudi.xyz",
     icon: "mail",
-    handle: "frhnwahyudii@gmail.com",
+    handle: "hello@frhnwahyudi.xyz",
   },
   {
     name: "LinkedIn",
