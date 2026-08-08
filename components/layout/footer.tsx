@@ -87,10 +87,6 @@ export function Footer() {
         <div className="border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.{" "}
-            <span className="hidden sm:inline">|</span>{" "}
-            <span className="block sm:inline text-xs">
-              Built with Next.js + shadcn/ui
-            </span>
           </p>
         </div>
       </div>
