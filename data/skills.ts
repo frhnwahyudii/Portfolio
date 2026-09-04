@@ -1,47 +1,77 @@
-import { Skill } from "@/lib/types";
+import type { Skill } from "@/lib/types";
 
+/**
+ * Skill categories follow the CV structure exactly — no self-ratings,
+ * no claims that are not on the CV.
+ */
 export const skills: Skill[] = [
-  // Frontend
-  { name: "HTML5 & CSS3", category: "Frontend", level: 5 },
-  { name: "JavaScript", category: "Frontend", level: 4 },
-  { name: "Bootstrap", category: "Frontend", level: 4 },
-  { name: "Tailwind CSS", category: "Frontend", level: 4 },
-  { name: "Responsive Design", category: "Frontend", level: 4 },
-
   // Backend
-  { name: "Laravel Framework", category: "Backend", level: 5 },
-  { name: "PHP Development", category: "Backend", level: 5 },
-  { name: "C# Programming", category: "Backend", level: 4 },
-  { name: "MySQL Database", category: "Backend", level: 4 },
-  { name: "Eloquent ORM", category: "Backend", level: 5 },
-  { name: "RESTful API Design", category: "Backend", level: 4 },
-  { name: "MVC Architecture", category: "Backend", level: 5 },
+  { name: "Laravel", category: "Backend" },
+  { name: "PHP", category: "Backend" },
+  { name: "RESTful APIs", category: "Backend" },
+  { name: "Service-Repository Pattern", category: "Backend" },
+  { name: "OOP", category: "Backend" },
 
-  // GIS
-  { name: "Geographic Information Systems", category: "GIS", level: 4 },
-  { name: "Leaflet.js", category: "GIS", level: 4 },
-  { name: "Web Mapping", category: "GIS", level: 4 },
-  { name: "Data Visualization", category: "GIS", level: 4 },
+  // Frontend
+  { name: "HTML5", category: "Frontend" },
+  { name: "CSS3", category: "Frontend" },
+  { name: "JavaScript", category: "Frontend" },
+  { name: "Leaflet.js", category: "Frontend" },
 
-  // AI/Tools
-  { name: "AI for Productivity", category: "AI/Tools", level: 4 },
-  { name: "Git & Version Control", category: "AI/Tools", level: 4 },
-  { name: "Github Copilot", category: "AI/Tools", level: 3 },
-  { name: "Cline", category: "AI/Tools", level: 4 },
-   
-  // Soft Skills
-  { name: "Problem Solving", category: "Soft Skills", level: 5 },
-  { name: "Critical Thinking", category: "Soft Skills", level: 5 },
-  { name: "Fast Learning", category: "Soft Skills", level: 5 },
-  { name: "Team Collaboration", category: "Soft Skills", level: 4 },
-  { name: "Project Management", category: "Soft Skills", level: 4 },
-  { name: "Communication", category: "Soft Skills", level: 4 },
+  // Database & System Analysis
+  { name: "MySQL", category: "Database & System Analysis" },
+  { name: "UML", category: "Database & System Analysis" },
+  { name: "ERD", category: "Database & System Analysis" },
+  { name: "Flowcharts", category: "Database & System Analysis" },
+
+  // AI-Assisted Development
+  { name: "GitHub Copilot", category: "AI-Assisted Development" },
+  { name: "DeepSeek API", category: "AI-Assisted Development" },
+  { name: "Google Gemini", category: "AI-Assisted Development" },
+  { name: "LangGraph", category: "AI-Assisted Development" },
+  { name: "Prompt Engineering", category: "AI-Assisted Development" },
+
+  // Tools
+  { name: "Git", category: "Tools" },
+  { name: "GitHub", category: "Tools" },
 ];
 
-export const skillCategories = [
-  { key: "Frontend" as const, label: "Frontend Development", icon: "code" },
-  { key: "Backend" as const, label: "Backend Development", icon: "database" },
-  { key: "GIS" as const, label: "Geographic Information Systems", icon: "map" },
-  { key: "AI/Tools" as const, label: "AI & Productivity Tools", icon: "bot" },
-  { key: "Soft Skills" as const, label: "Professional Skills", icon: "users" },
+export const skillCategories: {
+  key: Skill["category"];
+  icon: "code" | "database" | "map" | "bot" | "wrench";
+  description: string;
+}[] = [
+  {
+    key: "Backend",
+    icon: "database",
+    description: "Server-side development with Laravel and PHP",
+  },
+  {
+    key: "Frontend",
+    icon: "code",
+    description: "Markup, styling and interactive map UIs",
+  },
+  {
+    key: "Database & System Analysis",
+    icon: "map",
+    description: "Data modeling and system design",
+  },
+  {
+    key: "AI-Assisted Development",
+    icon: "bot",
+    description: "AI tools integrated into development workflows",
+  },
+  {
+    key: "Tools",
+    icon: "wrench",
+    description: "Version control and collaboration",
+  },
 ];
+
+/** FR-09 — growth areas the CV lists as "currently learning". */
+export const currentlyLearning = [
+  "PostgreSQL",
+  "Docker",
+  "Vue.js",
+  "Cloud Concepts",
+] as const;

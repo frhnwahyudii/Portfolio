@@ -1,20 +1,17 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Code, Database, Map, Bot, Users } from "lucide-react";
+import { Code, Database, Map, Bot, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { skills, skillCategories } from "@/data/skills";
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -27,12 +24,12 @@ const categoryIconMap: Record<string, React.ReactNode> = {
   database: <Database className="h-5 w-5" />,
   map: <Map className="h-5 w-5" />,
   bot: <Bot className="h-5 w-5" />,
-  users: <Users className="h-5 w-5" />,
+  wrench: <Wrench className="h-5 w-5" />,
 };
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-24 md:py-32 relative">
+    <section id="skills" className="py-24 md:py-32 relative scroll-mt-24">
       <div className="container mx-auto px-4">
         <motion.div
           variants={sectionVariants}
@@ -42,7 +39,9 @@ export function SkillsSection() {
         >
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Technical Skills
+            </h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </motion.div>
 
@@ -50,13 +49,16 @@ export function SkillsSection() {
             variants={itemVariants}
             className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
           >
-            Technologies and tools I work with, organized by discipline
+            Grouped the same way as the CV — no self-ratings, just the
+            technologies I actually use.
           </motion.p>
 
           {/* Category grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {skillCategories.map((category) => {
-              const categorySkills = skills.filter((s) => s.category === category.key);
+              const categorySkills = skills.filter(
+                (s) => s.category === category.key
+              );
               return (
                 <motion.div
                   key={category.key}
@@ -69,9 +71,11 @@ export function SkillsSection() {
                       {categoryIconMap[category.icon]}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-sm">{category.label}</h3>
+                      <h3 className="font-semibold text-sm">
+                        {category.key}
+                      </h3>
                       <p className="text-xs text-muted-foreground">
-                        {categorySkills.length} skills
+                        {category.description}
                       </p>
                     </div>
                   </div>

@@ -1,4 +1,5 @@
 import { PERSONAL_INFO, SOCIAL_LINKS, NAV_ITEMS } from "@/lib/constants";
+import { SocialIcon } from "@/components/ui/social-icon";
 
 export function Footer() {
   return (
@@ -12,8 +13,9 @@ export function Footer() {
               <span className="text-muted-foreground">Wahyudi</span>
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
-              Information Systems graduate passionate about creating innovative web solutions,
-              integrating AI, and contributing to technological advancement.
+              Junior Full-Stack Developer building practical web applications
+              with Laravel, PHP, JavaScript, and MySQL — with system analysis,
+              GIS, and AI-assisted workflows.
             </p>
           </div>
 
@@ -26,7 +28,7 @@ export function Footer() {
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <a
-                    href={item.href}
+                    href={`/${item.href}`}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {item.label}
@@ -49,25 +51,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-background text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-all"
-                  aria-label={link.name}
+                  aria-label={`${link.name} — ${link.handle}`}
                 >
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    {link.icon === "mail" && (
-                      <>
-                        <rect width="20" height="16" x="2" y="4" rx="2" />
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                      </>
-                    )}
-                    {(link.icon === "github" || link.icon === "globe") && (
-                      <circle cx="12" cy="12" r="10" />
-                    )}
-                    {(link.icon === "linkedin" || link.icon === "external-link") && (
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    )}
-                    {link.icon === "instagram" && (
-                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                    )}
-                  </svg>
+                  <SocialIcon icon={link.icon} className="size-4" />
                   {link.name}
                 </a>
               ))}
@@ -86,7 +72,8 @@ export function Footer() {
 
         <div className="border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights reserved.{" "}
+            © {new Date().getFullYear()} {PERSONAL_INFO.name}. All rights
+            reserved.
           </p>
         </div>
       </div>

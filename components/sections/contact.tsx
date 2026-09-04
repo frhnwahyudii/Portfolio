@@ -1,19 +1,18 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Mail, MapPin, ExternalLink, Globe } from "lucide-react";
-import { SOCIAL_LINKS, PERSONAL_INFO } from "@/lib/constants";
+import { Mail, MapPin, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SocialIcon } from "@/components/ui/social-icon";
+import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -21,15 +20,9 @@ const itemVariants: Variants = {
   },
 };
 
-const socialIcons: Record<string, React.ReactNode> = {
-  linkedin: <ExternalLink className="h-4 w-4" />,
-  github: <Globe className="h-4 w-4" />,
-  mail: <Mail className="h-4 w-4" />,
-};
-
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-24 md:py-32 relative scroll-mt-24">
       <div className="container mx-auto px-4">
         <motion.div
           variants={sectionVariants}
@@ -38,78 +31,73 @@ export function ContactSection() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Section header */}
-          <motion.div variants={itemVariants} className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Let's Connect
+          <motion.div variants={itemVariants} className="text-center mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+              Have an opportunity?
             </h2>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6" />
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+              I&apos;m currently open to full-time opportunities, freelance
+              projects, and collaborations.
+            </p>
           </motion.div>
 
+          {/* Primary CTA */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-center gap-4 mb-12"
+          >
+            <a href={`mailto:${PERSONAL_INFO.email}`}>
+              <Button size="lg" className="gap-2 px-8 h-12">
+                <Mail className="h-4 w-4" />
+                Email Me
+              </Button>
+            </a>
+            <p className="text-sm text-muted-foreground">
+              {PERSONAL_INFO.email}
+            </p>
+          </motion.div>
+
+          {/* Secondary CTAs */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-wrap items-center justify-center gap-3 mb-10"
+          >
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${link.name} — ${link.handle}`}
+              >
+                <Button variant="outline" className="gap-2">
+                  <SocialIcon icon={link.icon} className="size-4" />
+                  {link.name}
+                </Button>
+              </a>
+            ))}
+            <a
+              href={PERSONAL_INFO.resumeUrl}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="outline" className="gap-2">
+                <Download className="h-4 w-4" />
+                Download CV
+              </Button>
+            </a>
+          </motion.div>
+
+          {/* Meta */}
           <motion.p
             variants={itemVariants}
-            className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto"
+            className="text-center text-sm text-muted-foreground flex items-center justify-center gap-1.5"
           >
-            I'm always interested in discussing new opportunities, innovative projects,
-            and potential collaborations. Feel free to reach out.
+            <MapPin className="h-4 w-4" />
+            {PERSONAL_INFO.location} · Available worldwide (remote)
           </motion.p>
-
-          <div className="max-w-4xl mx-auto">
-            {/* Contact info */}
-            <motion.div variants={itemVariants} className="text-center mb-12">
-              <div className="flex flex-wrap justify-center gap-6 mb-8">
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0 mt-0.5">
-                    <Mail className="h-4 w-4" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm text-muted-foreground">Email</p>
-                    <a
-                      href={`mailto:${PERSONAL_INFO.email}`}
-                      className="text-sm font-medium hover:text-primary transition-colors"
-                    >
-                      {PERSONAL_INFO.email}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0 mt-0.5">
-                    <MapPin className="h-4 w-4" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm text-muted-foreground">Location</p>
-                    <p className="text-sm font-medium">{PERSONAL_INFO.location}</p>
-                  </div>
-                </div>
-              </div>
-
-              <h3 className="font-semibold mb-4">Social Links</h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {SOCIAL_LINKS.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-border hover:border-primary/50 transition-colors text-sm text-muted-foreground hover:text-foreground bg-card"
-                  >
-                    {socialIcons[link.icon] || (
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <circle cx="12" cy="12" r="10" />
-                      </svg>
-                    )}
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-center text-sm text-muted-foreground italic"
-            >
-              Currently open to freelance projects, full-time opportunities, and collaborations.
-            </motion.p>
-          </div>
         </motion.div>
       </div>
     </section>

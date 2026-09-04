@@ -1,19 +1,22 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import {
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Award,
+  ArrowUpRight,
+} from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/constants";
 
 const sectionVariants: Variants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -21,29 +24,27 @@ const itemVariants: Variants = {
   },
 };
 
-const skills = [
-  "Laravel Framework",
-  "PHP Development",
-  "C# Programming",
-  "JavaScript",
-  "MySQL Database",
-  "GIS Mapping",
-  "AI Integrated for Productivity",
-  "Full-Stack Development",
+const facts = [
+  {
+    icon: GraduationCap,
+    label: "Education",
+    value: `Bachelor of ${PERSONAL_INFO.major} — ${PERSONAL_INFO.university}`,
+  },
+  { icon: Award, label: "GPA", value: `${PERSONAL_INFO.gpa} / 4.00` },
+  { icon: Calendar, label: "Graduation", value: PERSONAL_INFO.graduation },
+  { icon: MapPin, label: "Based in", value: PERSONAL_INFO.location },
 ];
 
-const professionalSkills = [
-  "Problem Solving",
-  "Critical Thinking",
-  "Fast Learning",
-  "Team Collaboration",
-  "Project Management",
-  "Communication",
+const focusAreas = [
+  "Full-stack web development",
+  "System analysis & database design",
+  "GIS applications",
+  "AI-assisted development",
 ];
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32 relative">
+    <section id="about" className="py-24 md:py-32 relative scroll-mt-24">
       <div className="container mx-auto px-4">
         <motion.div
           variants={sectionVariants}
@@ -53,99 +54,100 @@ export function AboutSection() {
         >
           {/* Section header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">About</h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </motion.div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-            {/* Photo */}
-            <motion.div variants={itemVariants} className="lg:w-2/5">
-              <div className="relative">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-border">
-                  <img
-                    src="/images/farhan.jpeg"
-                    alt="Portrait of Farhan Wahyudi"
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                {/* Decorative element */}
-                <div className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl border-2 border-primary/20 -z-10" />
+          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
+            {/* Content */}
+            <motion.div variants={itemVariants} className="lg:w-3/5">
+              <h3 className="text-2xl font-bold mb-6">
+                Information Systems graduate building practical web
+                applications
+              </h3>
+
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  I&apos;m an Information Systems graduate with experience in
+                  freelance development and frontend development through the{" "}
+                  <strong className="text-foreground">VINIX7</strong>{" "}
+                  internship — now looking to grow as a Junior Full-Stack
+                  Developer.
+                </p>
+                <p>
+                  I focus on building practical web applications with{" "}
+                  <strong className="text-foreground">
+                    Laravel, PHP, JavaScript, and MySQL
+                  </strong>
+                  . My work regularly involves system analysis: breaking a
+                  problem down, modeling it with UML, ERDs, and flowcharts, and
+                  turning those models into working features and APIs.
+                </p>
+                <p>
+                  What makes my approach different is pairing solid fundamentals
+                  with modern workflows. I use AI-assisted development (GitHub
+                  Copilot, DeepSeek API + LangGraph, Google Gemini) to move
+                  faster without skipping design, and I&apos;m interested in
+                  combining software engineering with GIS — because spatial data
+                  turns information into decisions.
+                </p>
+              </div>
+
+              {/* Focus areas */}
+              <div className="mt-8">
+                <h4 className="font-semibold mb-3">What I do</h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {focusAreas.map((area) => (
+                    <li
+                      key={area}
+                      className="flex items-start gap-2 text-sm text-muted-foreground"
+                    >
+                      <ArrowUpRight className="h-4 w-4 mt-0.5 text-primary shrink-0" />
+                      {area}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
 
-            {/* Content */}
-            <motion.div variants={itemVariants} className="lg:w-3/5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-                <GraduationCap className="h-4 w-4" />
-                {PERSONAL_INFO.major}
-              </div>
+            {/* Facts card */}
+            <motion.div variants={itemVariants} className="lg:w-2/5">
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 lg:sticky lg:top-24">
+                <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">
+                  Quick Facts
+                </h4>
+                <ul className="space-y-5">
+                  {facts.map((fact) => {
+                    const Icon = fact.icon;
+                    return (
+                      <li key={fact.label} className="flex items-start gap-3">
+                        <span className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className="text-left">
+                          <span className="block text-xs text-muted-foreground">
+                            {fact.label}
+                          </span>
+                          <span className="block text-sm font-medium text-foreground">
+                            {fact.value}
+                          </span>
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
 
-              <h3 className="text-2xl font-bold mb-6">
-                Building Digital Solutions with Purpose
-              </h3>
-
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                I am a graduate of {PERSONAL_INFO.university}, Faculty of Computer Science, majoring in{" "}
-                {PERSONAL_INFO.major}. I completed my undergraduate thesis with a GPA of{" "}
-                <strong>{PERSONAL_INFO.gpa}/4.00</strong> and graduated in{" "}
-                {PERSONAL_INFO.graduation}. I have a strong commitment to building a career in the IT
-                industry and continuously learning new technologies, trends, and development practices.
-                I also integrate artificial intelligence technologies into my work for greater efficiency
-                and improved problem solving.
-              </p>
-
-              {/* Stats grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                <div className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
-                  <Award className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <div className="text-2xl font-bold text-foreground">{PERSONAL_INFO.gpa}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Final GPA</div>
-                </div>
-                <div className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
-                  <Calendar className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <div className="text-lg font-bold text-foreground">{PERSONAL_INFO.graduation}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Graduation</div>
-                </div>
-                <div className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
-                  <GraduationCap className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <div className="text-sm font-bold text-foreground">S.Kom</div>
-                  <div className="text-xs text-muted-foreground mt-1">Degree</div>
-                </div>
-                <div className="bg-primary/5 border border-primary/10 rounded-xl p-4 text-center">
-                  <MapPin className="h-5 w-5 mx-auto mb-2 text-primary" />
-                  <div className="text-sm font-bold text-foreground">{PERSONAL_INFO.location}</div>
-                  <div className="text-xs text-muted-foreground mt-1">Location</div>
-                </div>
-              </div>
-
-              {/* Technical Expertise */}
-              <div className="mb-6">
-                <h4 className="font-semibold mb-3">Technical Expertise</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/10"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Professional Skills */}
-              <div>
-                <h4 className="font-semibold mb-3">Professional Skills</h4>
-                <div className="flex flex-wrap gap-2">
-                  {professionalSkills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium border border-border"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="mt-6 pt-6 border-t border-border">
+                  <a
+                    href={PERSONAL_INFO.resumeUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+                  >
+                    Download my CV
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
             </motion.div>
